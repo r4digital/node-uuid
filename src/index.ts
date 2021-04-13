@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import cloneDeepWith from 'lodash/cloneDeepWith';
 import {
   v4 as uuid, parse, stringify, validate as uuidValidate,
 } from 'uuid';
@@ -12,7 +12,7 @@ const uuidStringify = (data: any): string => {
 };
 
 const parseUuidProperties = <T>(object: T): T => {
-  return _.cloneDeepWith(object, (value) => {
+  return cloneDeepWith(object, (value) => {
     if (typeof value === 'string' && uuidValidate(value)) {
       return uuidParse(value);
     }
@@ -22,7 +22,7 @@ const parseUuidProperties = <T>(object: T): T => {
 };
 
 const stringifyUuidProperties = <T>(object: T): T => {
-  return _.cloneDeepWith(object, (value) => {
+  return cloneDeepWith(object, (value) => {
     if (Buffer.isBuffer(value)) {
       return uuidStringify(value);
     }

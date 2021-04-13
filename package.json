@@ -1,6 +1,6 @@
 {
   "name": "@r4digital/uuid",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "UUID V4 Helper",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
